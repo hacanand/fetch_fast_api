@@ -37,7 +37,7 @@ export const DataCard = ({ posts }: Props) => {
       <div className=" gap-4 flex flex-wrap justify-center">
         {filteredData?.map((post: VideoPost) => (
           <ThumbnailCard key={post.video.videoId} post={post.video} /> /* Render ThumbnailCard component for each filtered post */
-        ))}
+        )) ||<div className="text-red-500"> No data found</div>}
       </div>
     </div>
   );
