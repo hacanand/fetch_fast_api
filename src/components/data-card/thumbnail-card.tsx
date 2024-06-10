@@ -1,25 +1,16 @@
 import React from "react";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { cn } from "@/lib/utils";
+ 
 import Image from "next/image";
-// type Post = {
-//   userId: number;
-//   id: number;
-//   title: string;
-//   body: string;
-// };
-// type Props = {
-//   post: Post[];
-// };
-
-const ThumbnailCard = ({ post }: any) => {
+import { Prop } from "@/lib/types";
+ 
+const ThumbnailCard = ({ post }: Prop) => {
   return (
     <div className="w-[336px] max-sm:w-[300px]">
       <Card>
@@ -27,9 +18,7 @@ const ThumbnailCard = ({ post }: any) => {
           <div className="relative">
             <Image
               src={post.thumbnails[2].url}
-                          loading="lazy"
-                          
-                          
+              loading="lazy"
               alt="Placeholder"
               width={post.thumbnails[2].width}
               height={post.thumbnails[2].height}

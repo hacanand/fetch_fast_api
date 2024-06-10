@@ -2,28 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import ThumbnailCard from "./thumbnail-card";
+import { Props, VideoPost } from "@/lib/types";
  
- 
-type VideoPost = {
-  video: Post
-  }
-
-type Post = {
-  videoId: string;
-  title: string;
-  channelName: string;
-  viewCountText: string;
-  publishedTimeText: string;
-  thumbnails: {
-    url: string;
-    width: number;
-    height: number;
-  }[];
-  lengthText: string;
-};
-type Props = {
-  posts: Post[];
-};
 
 export const DataCard = ({ posts }: Props) => {
   const [value, setValue] = useState<string>("");
