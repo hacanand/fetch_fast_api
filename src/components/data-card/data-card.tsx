@@ -6,40 +6,39 @@ import { Props, VideoPost } from "@/lib/types";
  
 
 export const DataCard = ({ posts }: Props) => {
-  const [value, setValue] = useState<string>("");
-  const [filteredData, setFilteredData] = useState<any[]>([]);
-  //use debouncing here and set value
-  //set search query to value
+  const [value, setValue] = useState<string>(""); // State to store the input value
+  const [filteredData, setFilteredData] = useState<any[]>([]); // State to store the filtered data
+
+  // Handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //debouncing here to set value after 500ms of user input
     const timer = setTimeout(() => {
-      setValue(e.target.value);
+      setValue(e.target.value); // Set the input value after 500ms of user input
     }, 500);
     return () => clearTimeout(timer);
   };
+
   useEffect(() => {
+    // Filter the posts based on the input value
     const filteredData = posts?.filter((post:any) => {
       return (
         post.video.title.toLowerCase().includes(value.toLowerCase()) ||
         post.video.channelName.toLowerCase().includes(value.toLowerCase())
       );
     });
-    setFilteredData(filteredData);
+    setFilteredData(filteredData); // Update the filtered data
   }, [value]);
 
-  //console.log(filteredData);
   return (
     <div className="flex flex-col justify-center items-center  flex-wrap gap-4">
-      <Input onChange={handleChange} />
+      <Input onChange={handleChange} /> {/* Input component for user input */}
       <div className="self-center text-foreground text-3xl font-bold ">
         Card
       </div>
       <div className=" gap-4 flex flex-wrap justify-center">
         {filteredData?.map((post: VideoPost) => (
-          <ThumbnailCard key={post.video.videoId} post={post.video} />
+          <ThumbnailCard key={post.video.videoId} post={post.video} /> /* Render ThumbnailCard component for each filtered post */
         ))}
       </div>
     </div>
   );
 };
- 
