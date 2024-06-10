@@ -38,7 +38,7 @@ export const DataCard = ({ posts }: Props) => {
     return () => clearTimeout(timer);
   };
   useEffect(() => {
-    const filteredData = posts.filter((post:any) => {
+    const filteredData = posts?.filter((post:any) => {
       return (
         post.video.title.toLowerCase().includes(value.toLowerCase()) ||
         post.video.channelName.toLowerCase().includes(value.toLowerCase())
@@ -55,7 +55,7 @@ export const DataCard = ({ posts }: Props) => {
         Card
       </div>
       <div className=" gap-4 flex flex-wrap justify-center">
-        {filteredData.map((post: VideoPost) => (
+        {filteredData?.map((post: VideoPost) => (
           <ThumbnailCard key={post.video.videoId} post={post.video} />
         ))}
       </div>

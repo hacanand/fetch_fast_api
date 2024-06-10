@@ -27,7 +27,9 @@ const ThumbnailCard = ({ post }: any) => {
           <div className="relative">
             <Image
               src={post.thumbnails[2].url}
-              loading="lazy"
+                          loading="lazy"
+                          
+                          
               alt="Placeholder"
               width={post.thumbnails[2].width}
               height={post.thumbnails[2].height}
