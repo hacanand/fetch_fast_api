@@ -1,6 +1,4 @@
 import React from "react";
-import { Input } from "../ui/input";
-import { useState } from "react";
 import { fetchData } from "@/lib/fetchdata";
 import { DataCard } from "./data-card";
 
